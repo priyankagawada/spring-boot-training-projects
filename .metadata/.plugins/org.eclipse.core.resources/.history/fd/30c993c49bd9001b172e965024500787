@@ -1,0 +1,16 @@
+package com.training.boot.jpa.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.training.boot.jpa.entities.EmployeeEntity;
+
+// Implementation of this interface is done by spring data jpa
+public interface EmployeeRepository extends CrudRepository<EmployeeEntity, Long> {
+	  // save
+	// findById
+	// findAll
+	// count()
+	// deleteById()
+	
+}
+

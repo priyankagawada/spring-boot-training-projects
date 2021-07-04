@@ -1,0 +1,5 @@
+package com.training.boot.rest;
+
+public class HelloController {
+
+}

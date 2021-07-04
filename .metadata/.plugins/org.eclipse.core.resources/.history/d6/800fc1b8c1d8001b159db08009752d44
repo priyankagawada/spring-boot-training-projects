@@ -1,0 +1,23 @@
+package com.training.boot.service;
+
+import java.util.Optional;
+
+import com.training.boot.model.Project;
+
+public class IProjectServiceImpl implements IProjectService{
+
+	@Override
+	public Optional<Project> findById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Project save(Project project) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

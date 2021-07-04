@@ -1,0 +1,5 @@
+package com.training.boot.configuration;
+
+public class MyCommandLineRunner {
+
+}

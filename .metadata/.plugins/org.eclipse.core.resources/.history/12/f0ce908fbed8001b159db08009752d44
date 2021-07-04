@@ -1,0 +1,14 @@
+package com.training.boot.repository;
+
+public interface IProjectRepository {
+
+	
+	   public Project findById(long id);
+	   
+	   public 
+	   
+	   
+	
+	
+	
+}

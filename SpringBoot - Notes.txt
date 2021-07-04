@@ -1,0 +1,415 @@
+Pre-Requisite - Aware with Spring Core / Spring MVC
+
+Rate yourself on Spring
+
+
+What is Spring?
+----------------------------------------
+
+  - It is a Java-based framework that is used enterprise
+application development
+
+  Enterprise -> Business applications 
+               (Large & Complex application)
+
+    
+          Features:
+                    Mulitple Functionalities 
+                    Multiple DB (SQL , NOSQL)
+                    Security, Transaction aspects,
+                    Usage of in-memory, caches
+                    Mulitple Clients (Web, Mobiles, Other
+                    applications, IOT)
+                    Analytics of data
+                    communication between applications
+
+           Java Family - Java EE (Java Enterprise Edition)   
+             Limitation -> Complexity of developing application
+
+               Spring - Core framework to manage the enterprise-applications.
+
+                Features: 
+                              Ease of Development
+                              loosely-coupled components (High Cohesive, less coupling) using DI
+
+                             EX:  Component -> manage the incoming request
+
+                               Concern -> One component may have dependency on Other component
+                              class MailService{
+                                    
+                                         RegisteredUsers
+
+                                }
+
+                              Dependency Injection (DI) -> Class A is dependent on Class B
+                            class A
+                            {
+                               public A(){
+                                  B obj = new B();
+                                  C obj = new C();
+                               }
+                            }
+
+
+
+                         class A{
+                              
+                                  B bObj;
+                                  C cObj;
+                                   public A(B bObj, C cObj){
+                                    
+                                      this.bObj = bObj;
+                                      this.cObj = cObj;
+                                   
+                                  }
+                             
+                                 methodXX(){
+                                   this.bObj.yyy();
+                                }
+ 
+                         }
+
+               External code (Spring Container) 
+                               B x = new B(10, 20);  // instantiated by Spring
+                               C y = new C("hello", "world"); // instantiated by Spring
+                               A aObj = new A(x, y);
+
+
+                Testing the components in isolation easily
+                Lightweight - Spring Container : ApplicationContext context = new ClassPathXMLApplicationContext();
+                Configurations -> Spring ----------------> ORM (Hibernate)
+                                          Integrate 
+
+                          Write configurations -> XML / Annotations
+
+
+
+           class Account{
+                  
+                 accountId
+                 balance
+                 updateCustomerDetails(){..}
+                  getBalance();
+                  withdraw();
+           |
+
+
+       SOLID Principles of design
+
+         
+        Documentation - http://spring.io
+
+  Advantages of framework - Structure to the development
+ Web application -> DispatcherServlet -> Controller (S)
+
+  What is Spring Boot?
+  =======================================================
+  Project used for developing Spring applications based on AUTO CONFIGURATION
+
+  Spring app -> 80% efforts are put in configuration (XML) and dependency management
+
+   Spring 3.5 version -> we wanted to use JSON Parser to parse incoming data on network
+   Which of version of Jackson should be compatabile?
+
+   Run a Java application on any machine / env.-> Package the application
+
+     (jar -> class file + libraries)
+     (war -> web appl -> .class file + libraries + web.xml) -> deployed on Tomcat Web Server
+     (ear -> meta-inf + jar + war)
+
+ Spring Boot
+=====================
+
+  standalone - Application Files , Runtime, Libraries, Tomcat Server
+  Production-ready -> configuration required to run the application
+  Opinionated - Looks at Classptah of project and finds the dependencies 
+
+   dependency for MVC - spring-web-mvc jar file on classpath
+       -> use need a bean -> DispatcherServlet Bean
+       -> default View technology -> Theamleaf
+       -> Rest Web Service -> REST Bean 
+      -> a servlet container (Tomcat) -> 8080 port
+
+
+  JPA -> Configure EntityManagerFactory Bean/ DataSource bean 
+
+  Security -> Create one default user with username & password
+
+  in-memory (h2) ; /h2-console client
+
+  Bootstrap -> Autoconfigured beans, some default configuration will be provided to your application'at startup
+  
+
+dependency for web application
+===================================
+  spring core (Framework, DI, Bean Life Cycle, Annoatation @Component, @Configuartion..)
+  Common - Logging 
+  spring web 
+  Support for RestWeb Service 
+  JSON & XML -> JACKSON - third-party library 
+  Tomcat
+
+  Managing application -> Collections, File I/O
+
+ Starters -> POM.XML (with a collection of dependencies)
+
+  starter : spring-boot-starter-*
+
+    <artifcat>spring-core
+   </>
+
+Structuring Spring Boot Project
+============================
+  1. Using Spring Initializr - Web application 
+  2. Using Maven and adding starter dependency
+  3. Using STS -> Spring starter project
+
+ Spring 2.0 latest = 2.5.x
+ 
+   spring-starter-parent - 2.0.X - decide on Spring framework version = 5.0
+   
+
+
+  Step1: Use Spring Initializr , provide project metadata and select dependencies (No dependencies) 
+  Step 2: Click generate 
+  Step 3: Download it and unzip it inside the folder
+
+
+  Step 4: Open the STS IDE and select the workspace
+  Step 5: Import the unzipped project inside it.
+            File -> Import -> Maven -> Existing Maven Project
+
+
+  
+ 
+spring-boot-maven-plugin - package the application in jar
+
+Annotation- @SpringBootApplication
+
+SpringApplication.run()
+
+SpringApplication -> class
+run() -> static method 
+
+BootStrap of the application - is the process where the application will be configured with the beans  and the spring container
+
+ @BootStrapApplication
+        - SpringBootConfiguration  / @Configuration 
+        - @ComponentScan - scan the packages to register classes as beans (@Component, @Service, 
+@Repository, @Controller, @RestController - @Configuration - register bean
+        - @EnableAutoConfiguration
+            - visit the classpath to find the jars
+            - based on the jars, if the required beans are not created by developer, then create those object(beans) in the container
+
+
+
+ What is spring bean?
+ spring bean is a technical jargon used by spring team
+
+  Any class marked with (@Component, @Service, 
+@Repository, @Controller, @RestController)
+
+   the object of that class is created by the spring container and that object is referred as bean in the spring container
+
+                                     
+  Spring Components -> Video links @Component, @Service, @Repository, @Controller, @ComponentScan
+  Spring Autowiring -> @Autowired annotation 
+
+===================================================================================
+
+@Configuration is used for defining external beans that cannot be directly registered with annotations.
+
+
+  Requirement -> manage projects and their tasks
+             - find the project by ID
+             - save the new project
+
+
+Optional is a class introdiuced in Java 8 to deal with Null values and NullPointerException
+It creates a container for the object 
+
+       
+   @Autowired -> used to identify the dependent type and wire it
+    property level
+    method level
+   constructor level
+
+                                       
+   < bean id="service" autowire=ByType/ByName>
+
+  </bean>
+
+  <bean id="repository > </bean>
+
+        
+ Logger -
+=============================
+ - Log4j
+  - slf4j
+ - common-log
+- logback (spring boot)
+
+
+
+  Every application store and retrieve the data 
+        
+  How you manage database to store from Object-oriented application?
+
+                Using JDBC APi ------------------------------> DB
+                                  by getting data from properties into variable 
+
+
+                               JDBC API
+                                      |
+                 Object        ORM                                             Relational DB
+                                    Create Queries
+                                     convert from String to varchar
+                                     managing relationships
+                                      Query language
+
+                                     (Hibernate, Ibatis, JPA..)
+
+           JPA - Java Persistence API - Specification or rule
+           Annotations - @Entity , @Id, @Column ...
+            EntityManagerFactory(c), EntityManager API 
+
+
+            Hibernate - To persist object into DB - APIs
+               SessionFactory(c), Session objects to manage objects in DB
+ 
+        Spring Framework  - For  doing DB task
+
+                              Spring JDBC -------> based on JDBC API
+                              Spring JPA ---------> ORM --> based on any implementation of JPA
+ 
+
+                        
+                              Hibernate 5.x  based on JPA
+                              EcpliseLink is based on JPA
+                              Apache OpenJPA is based on JPA
+
+
+  Spring Boot - AutoConfiguration - beans and configuration
+                 
+                                          
+ Spring Data Project -> Programming model -> the underlying implementation of database code
+                                                                                      is generated by Spring Data project      
+
+            Developer Task                                                                                                                                             Spring Data Project Task
+ 
+    IProjectRepository (interface) -------------------------> IProjectRepositoryImpl( Generated)                           
+                             
+
+                                      JPA 
+                                        |
+                                    Spring Data JPA  <-> (Hibernate)
+                                         | Integrate 
+                                    Spring Boot
+
+
+  JPQL -> Queries on Objects , customize the queries, and return objects.
+
+
+Automatic Queries generated for custom queries
+============================================
+findBy()
+
+Date - findByOrderDateAfter(LocalDate d);
+Number - findByAgeGreaterThan()/ findByAgeLessThan()/findByAgeGreaterThanEqual()
+Null - FindByFirstNameIsNull()
+Like - findByFirstNameLike()
+=============================================================================
+
+What are Web Services?
+ - An application exposes its functionalities over the network.
+                                                                                            http (open protocol) 
+                                                                                                        SOAP(XML)
+                         Application A  (NET) <---------------------------------------> Application B (Java)
+                           client ---------------------------> Application (server)
+
+Traditional way for application to communication - EDI
+W3C - XML - define elements 
+ 1. SOAP (Simple object access protocol) 
+ 2. REST (   Representational State Transfer)  -> 
+
+
+AuthenticationProvider class executes the code to compare the given credentails (username)
+in the underlying mechasism by invoking loadByUserName(username or email);
+
+                    UserDetailsService Interface
+                                             UserDetails loadByUserName(username or email);
+
+on Success , it return UserDetails object
+In Failure, no object is returned ..returns a false
+
+
+By default, spring security creates a default user.
+
+To disable the default behavior, add configuration for the new user
+
+ PostMan ---------------------------------------------------> App
+                       URL + Http method
+                     Headers:
+                             CSRF Token
+
+ Requirement: We want to create more than one user
+                                 we want to secure rest endpoints manually
+
+
+  /contact -> not secured -> permitAll
+ /status -> not secured -> permitAll
+
+"/employees/{id}"-> secured -> authenticated
+/employees -> secured
+
+To create a User programmatically
+ 1. Use User class from spring security api
+2. Create your User class. It should implements UserDetails interface
+
+To apply authority 
+http.csrf().disable().authorizeRequests()
+.antMatchers("/employees/**").hasAuthority("ädmin") // john
+.antMatchers("/reports/**").hasAuthority("guest") // jill
+.antMatchers("/contact").permitAll()
+.antMatchers("/status").permitAll().and().httpBasic();
+
+  Requirement - To write security config for JPA
+
+1. Write your own UserDetails
+2. Write your own UserDetailService
+3. Write your own User
+4. Write your own authenticationProvider
+
+
+
+aut
+users
+id email password  enabled
+1   john  pass               true
+
+
+call to rest api ---------------->AuthenticationManager ------------->AuthenticationProvider -> loadUserByUsername()
+                                user+pass
+
+Documentation of Rest API
+============================
+Swagger - 
+
+1. Add dependency
+2. Configure Swagger in a spearate class
+   @Configuration
+   @EnableSwagger2
+
+bean -> Configure Docket Bean
+                
+
+
+
+
+
+
+
+
+
+
+

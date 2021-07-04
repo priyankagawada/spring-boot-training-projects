@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;SecurityConfiguration.java&apos; to &apos;authentication-jpa-app/src/main/java/com.training.boot.security&apos;&#x0D;&#x0A;- Original project: &apos;session3-spring-jpa-app&apos;&#x0D;&#x0A;- Destination element: &apos;authentication-jpa-app/src/main/java/com.training.boot.security&apos;&#x0D;&#x0A;- Original element: &apos;com.training.boot.jpa.security.SecurityConfiguration.java&apos;" description="Copy compilation unit" destination="=authentication-jpa-app/src\/main\/java&lt;com.training.boot.security" element1="/src\/main\/java&lt;com.training.boot.jpa.security{SecurityConfiguration.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1625223777547" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,31 @@
+package com.training.boot.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.training.boot.model.Project;
+import com.training.boot.repository.IProjectRepository;
+
+public class IProjectServiceImpl implements IProjectService{
+
+	// Autowire the repository 
+	@Autowired
+	private IProjectRepository repository;
+	
+	
+	@Override
+	public Optional<Project> findById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Project save(Project project) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+
+}

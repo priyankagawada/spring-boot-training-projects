@@ -1,0 +1,5 @@
+package com.training.boot.repository;
+
+public class IProjectRepositoryImpl {
+
+}

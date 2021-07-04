@@ -1,0 +1,5 @@
+package com.training.boot.jpa.repository;
+
+public interface EmployeeRepository {
+
+}

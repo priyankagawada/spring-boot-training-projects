@@ -1,0 +1,30 @@
+package com.training.boot.jpa.security;
+
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+
+// Whenever you want to customize the security
+
+public class SecurityConfiguration  extends WebSecurityConfigurerAdapter{
+
+	// all request to http://localhost:8080/employees/{id} will be authenticated
+	// httpBasic will authenticate details from POSTMAN & client app like Angular
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+	   http.authorizeRequests()
+	   .antMatchers("/employees/**").authenticated()
+	   .antMatchers("/contact").permitAll()
+	   .antMatchers("/status").permitAll()
+	   .and()
+	   .httpBasic();
+	}
+
+	
+	// Override the security for rest endpoints
+	
+	
+	
+	
+	// Override to create the user credentials programmatically
+	
+}

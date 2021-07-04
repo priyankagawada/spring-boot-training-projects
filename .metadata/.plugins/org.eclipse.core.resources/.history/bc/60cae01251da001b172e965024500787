@@ -1,0 +1,30 @@
+package com.training.boot.jpa.controller.rest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+// request to controller will be http://localhost:8082/status
+//@Controller
+@RestController  // internally, it means the class with @Controller and all methods will be annotated with @ResponseBody
+public class EmployeeController {
+	
+	public EmployeeController() {
+		System.out.println("EmployeeController instantiated..");
+	}
+
+	// map the method with the URL to handle incoming request
+	// if you are designing a RESt API, the method must be annotated with @ResponseBody to send the response to client
+	@RequestMapping(path="/status", method= RequestMethod.GET)
+	//@ResponseBody
+	public String updateStatus() {
+		return "EmployeeController handles HTTP request";
+	}
+	
+	
+	public Employee
+	
+	
+	
+}

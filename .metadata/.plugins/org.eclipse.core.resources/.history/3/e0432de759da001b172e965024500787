@@ -1,0 +1,44 @@
+package com.training.boot.jpa.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.BeanUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.training.boot.jpa.controller.model.EmployeeDTO;
+import com.training.boot.jpa.entities.EmployeeEntity;
+import com.training.boot.jpa.repository.EmployeeRepository;
+
+@Service
+public class EmployeeService {
+
+	private EmployeeRepository repository;
+
+	@Autowired
+	public EmployeeService(EmployeeRepository repository) {
+		this.repository = repository;
+
+	}
+
+	public EmployeeDTO findById(Long id) {
+		Optional<EmployeeEntity> optional = repository.findById(id);
+		EmployeeDTO returnObject = new EmployeeDTO();
+		if (optional.isPresent()) {
+			EmployeeEntity employee = optional.get();
+			BeanUtils.copyProperties(employee, returnObject);
+		}
+		return returnObject;
+	}
+
+	
+	public EmployeeDTO save(EmployeeDTO emp) {
+		EmployeeEntity employeeEntity = new EmployeeEntity();
+		BeanUtils.copyProperties(emp, employeeEntity);
+		this.repository.save(employeeEntity);	
+		return emp;	
+		
+	}
+
+	
+}

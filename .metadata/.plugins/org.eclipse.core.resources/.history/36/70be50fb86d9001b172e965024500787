@@ -1,0 +1,13 @@
+#key=value
+
+# tomcat server settings
+server.port = 8081
+
+# DataSource connection settings
+spring.datasource.url=jdbc:h2:mem:emp-proj-db
+spring.datasource.username=db-user
+spring.datasource.password=db-password
+
+# H2 settings
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console

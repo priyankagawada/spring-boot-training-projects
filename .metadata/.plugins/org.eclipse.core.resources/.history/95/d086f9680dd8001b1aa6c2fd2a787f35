@@ -1,0 +1,15 @@
+package com.training.boot;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+// Entry to bootstrap the application
+
+@SpringBootApplication
+public class Session1SpringBootAppApplication {
+
+	public static void main(String[] args) {
+		System.out.println("Spring Boot App Bootstrapped...");
+		SpringApplication.run(Session1SpringBootAppApplication.class, args);
+	}
+
+}

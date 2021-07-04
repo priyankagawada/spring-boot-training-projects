@@ -1,0 +1,5 @@
+package com.training.boot.jpa.custom.exception;
+
+public class EmployeeException {
+
+}

@@ -1,0 +1,11 @@
+package com.training.boot.jpa.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.training.boot.jpa.entities.EmployeeEntity;
+
+public interface EmployeeRepository  extends CrudRepository<EmployeeEntity, Long> {
+
+	
+	  
+}

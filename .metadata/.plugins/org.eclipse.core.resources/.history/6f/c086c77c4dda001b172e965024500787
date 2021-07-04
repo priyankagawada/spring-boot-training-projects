@@ -1,0 +1,10 @@
+package com.training.boot.jpa.controller.rest;
+
+
+public class EmployeeController {
+
+	public String updateStatus() {
+		return "EmployeeController handles HTTP request";
+	}
+	
+}

@@ -1,0 +1,5 @@
+package com.training.boot.jpa.controller.model;
+
+public class EmployeeDTO {
+
+}

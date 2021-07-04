@@ -1,0 +1,14 @@
+package com.training.boot.model;
+
+import java.time.LocalDate;
+
+public class Project {
+	
+	private long id;
+	private String name;
+	private LocalDate startDate;
+	
+	
+	
+
+}

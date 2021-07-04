@@ -1,0 +1,37 @@
+package com.training.boot.repository;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import com.training.boot.model.Project;
+
+public class IProjectRepositoryImpl implements IProjectRepository {
+
+	// Collections are used for in-memory storage of data
+
+	List<Project> projects;
+
+	public IProjectRepositoryImpl() {
+		this.projects = new ArrayList<>();
+	}
+
+	@Override
+	public Optional<Project> findById(long id) {
+		for (Project project : projects) {
+			if (project.getId() == id) {
+				return Optional.ofNullable(project);
+			}
+		}
+
+		return null;
+	}
+
+	@Override
+	public Project save(Project project) {
+
+	       return projects.add(project);
+	
+	}
+
+}

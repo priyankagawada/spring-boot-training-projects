@@ -1,0 +1,31 @@
+package com.training.boot.jpa;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import com.training.boot.jpa.entities.EmployeeEntity;
+import com.training.boot.jpa.repository.EmployeeRepository;
+
+@Component
+public class EmployeeRepositoryRunner  implements CommandLineRunner{
+
+	@Autowired
+	private EmployeeRepository respository;
+	
+	@Override
+	public void run(String... args) throws Exception {
+	
+		EmployeeEntity entity1 = new EmployeeEntity(1L, "john", "rock", "john@abc.com", 30);
+		respository.save(entity1);
+		
+		EmployeeEntity entity2 = new EmployeeEntity(2L, "jill", "mathew", "jill@abc.com", 34);
+		respository.save(entity2);
+		
+	}
+
+	
+	
+	
+}
